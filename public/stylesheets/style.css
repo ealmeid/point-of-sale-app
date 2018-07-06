@@ -1,0 +1,31 @@
+.card {
+  max-width: 200px;
+  margin: 20px; }
+  .card:hover {
+    opacity: .8; }
+
+.center {
+  text-align: center; }
+
+body {
+  background: #737373; }
+
+.img-header {
+  width: 75px;
+  height: 75px;
+  margin: 0px 0px 0px 0px; }
+
+.page-header {
+  background: #bfbfbf; }
+
+.left {
+  width: 70%;
+  float: left; }
+
+.cart {
+  float: left; }
+
+strong {
+  color: #ffffff; }
+
+/*# sourceMappingURL=style.css.map */
