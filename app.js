@@ -10,7 +10,7 @@ var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//var usersRouter = require('./routes/users');
 
 var app = express();
 

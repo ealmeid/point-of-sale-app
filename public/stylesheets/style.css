@@ -1,14 +1,18 @@
 .card {
   max-width: 200px;
-  margin: 20px; }
+  margin: 40px; }
   .card:hover {
     opacity: .8; }
+  @media screen and (max-width: 425px) {
+    .card {
+      max-width: 325px;
+      float: none; } }
 
 .center {
   text-align: center; }
 
 body {
-  background: #737373; }
+  background: #c3e1f4; }
 
 .img-header {
   width: 75px;
@@ -16,7 +20,7 @@ body {
   margin: 0px 0px 0px 0px; }
 
 .page-header {
-  background: #bfbfbf; }
+  background: #1f94e2; }
 
 .left {
   width: 70%;
