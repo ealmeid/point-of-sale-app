@@ -8,6 +8,8 @@ var expressHsb = require('express-handlebars');
 var mongo = require('mongoose');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
+var bodyParser = require('body-parser');
+//var connect = require('connect');
 
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
@@ -20,6 +22,8 @@ mongo.connect('mongodb://evan:evan123@ds125841.mlab.com:25841/mycoffeeshop');
 app.engine('.hbs', expressHsb({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

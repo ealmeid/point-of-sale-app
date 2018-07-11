@@ -8,6 +8,9 @@ let Drink = new Schema({
     },
     image: {
         type: String
+    },
+    modifiers: {
+        type: Object
     }
 });
 

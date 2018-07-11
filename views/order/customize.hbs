@@ -1,0 +1,12 @@
+</div>
+<form method="POST" action="/order/{{drinks.id}}">
+{{# each drinks}}
+{{name}} <br>
+        {{# each modifiers}}
+            {{@key}} <input type="text" name="modifier" value={{this}}><br>
+
+        {{/each}}
+{{/each}}
+        <input type="submit" value="Submit">
+    </form>
+</div>
