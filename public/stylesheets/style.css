@@ -11,8 +11,23 @@
 .center {
   text-align: center; }
 
+form {
+  display: inline-block; }
+
+input {
+  margin: 20px;
+  font-size: 30px;
+  border-radius: 1em;
+  border: none;
+  text-align: center; }
+  input:focus {
+    outline: none; }
+  input.green {
+    background-color: #5ef94d; }
+
 body {
-  background: #c3e1f4; }
+  background: #c3e1f4;
+  text-align: center; }
 
 .img-header {
   width: 75px;
@@ -31,5 +46,14 @@ body {
 
 strong {
   color: #ffffff; }
+
+.checkout-btn {
+  background-color: #5ef94d;
+  text-color: #000000; }
+
+.name {
+  font-size: 30px; }
+  .name strong {
+    color: #ffffff; }
 
 /*# sourceMappingURL=style.css.map */

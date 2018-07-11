@@ -11,6 +11,9 @@ let Drink = new Schema({
     },
     modifiers: {
         type: Object
+    },
+    quantity: {
+        type: Number
     }
 });
 

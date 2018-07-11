@@ -7,12 +7,14 @@ var drinks = [
     new Drink({
         name: "Latte",
         image: "https://rawfactoryflavor.com/wp-content/uploads/2015/11/latte.jpg",
-        modifiers: {ChocolateSyrup: 0, WhippedCream: 0}
+        modifiers: {"Chocolate Syrup": 0, "Whipped Cream": 0},
+        quantity: 10
     }),
     new Drink({
         name: "Drip Coffee",
         image: "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
-        modifiers: {Sugar: 0, Cream: 0, Milk: 0}
+        modifiers: {"Sugar": 0, "Cream": 0, "Milk": 0},
+        quantity: 10
     })
 ];
 
