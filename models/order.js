@@ -8,13 +8,14 @@ module.exports = function Order(drinks){
 
     this.add = function(drink, id){
         var storedDrink = this.drinks[id];
-        if(!storedDrink){
-            storedDrink = this.drinks[id] = {drink: drink, quantity: 0, price: 0};
-        }
+        var temp;
+        storedDrink = this.drinks[id] = {drink: drink, quantity: 0, price: 0};
         storedDrink.quantity++;
-        storedDrink.price = storedDrink.drink.price * storedDrink.quantity;
+        storedDrink.price = parseFloat(storedDrink.drink.price).toFixed(2) * storedDrink.quantity;
         this.totalQty++;
         this.totalPrice+=storedDrink.price;
+        temp = this.totalPrice;
+        this.totalPrice = parseFloat(temp).toFixed(2);
     };
 
     this.returnDrinks = function(){

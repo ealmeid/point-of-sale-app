@@ -50,6 +50,7 @@ const steamedMilk = superclass => class extends superclass {
   updateModifiers(amount){
     this.modifiers.ChocolateSyrup = amount[0] ;
     this.price+=this.modifiers.ChocolateSyrup*.25;
+    this.price=this.price.toFixed(2);
   }
 
   addChocolateSyrup(){
@@ -73,6 +74,7 @@ const coffee = superclass => class extends superclass {
     this.modifiers.Cream = amount[1] ;
     this.modifiers.Milk = amount[2];
     this.price+=this.modifiers.Sugar*.25 + this.modifiers.Cream*.2 + this.modifiers.Milk*.5;
+    this.price=this.price.toFixed(2);
   }
 
   addSugar(amount){
