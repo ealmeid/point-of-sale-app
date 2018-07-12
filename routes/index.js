@@ -25,10 +25,16 @@ const espresso = superclass => class extends superclass {
   constructor(...args){
     super(...args);
     this.components.push("Espresso");
+    this.modifiers.WhippedCream=0;
   }
 
-  addWhippedCream(){
-    this.price+=0.2;
+  updateModifiers(amount){
+    this.modifiers.ChocolateSyrup = amount[1] ;
+    this.price+=this.modifiers.ChocolateSyrup*.20;
+  }
+
+  addWhippedCream(amount){
+    this.modifiers.WhippedCream=amount;
   }
 
 };
@@ -41,9 +47,13 @@ const steamedMilk = superclass => class extends superclass {
     this.modifiers.ChocolateSyrup = 0;
   }
 
+  updateModifiers(amount){
+    this.modifiers.ChocolateSyrup = amount[0] ;
+    this.price+=this.modifiers.ChocolateSyrup*.25;
+  }
+
   addChocolateSyrup(){
-    this.price+=0.5;
-    this.modifiers.ChocolateSyrup+=1;
+    this.modifiers.ChocolateSyrup=amount;
   }
 
 };
@@ -52,29 +62,29 @@ const coffee = superclass => class extends superclass {
 
   constructor(...args){
     super(...args);
-    this.components.push("Steamed Milk");
+    this.components.push("Coffee");
     this.modifiers.Sugar = 0;
     this.modifiers.Cream = 0;
     this.modifiers.Milk = 0;
   }
 
   updateModifiers(amount){
-    this.modifiers.sugar = amount[0] ;
-    this.modifiers.cream = amount[1] ;
-    this.modifiers.milk = amount[2];
-    this.price+=this.modifiers.sugar*.25 + this.modifiers.cream*.2 + this.modifiers.milk*.5;
+    this.modifiers.Sugar = amount[0] ;
+    this.modifiers.Cream = amount[1] ;
+    this.modifiers.Milk = amount[2];
+    this.price+=this.modifiers.Sugar*.25 + this.modifiers.Cream*.2 + this.modifiers.Milk*.5;
   }
 
   addSugar(amount){
-    this.modifiers.sugar = amount ;
+    this.modifiers.Sugar = amount ;
   }
 
   addCream(amount){
-    this.modifiers.cream = amount ;
+    this.modifiers.Cream = amount ;
   }
 
   addMilk(amount){
-    this.modifiers.milk= amount ;
+    this.modifiers.Milk= amount ;
   }
 
 }
@@ -116,7 +126,7 @@ router.post('/order/:id', function(req, res, next){
             break;
       }
       req.session.order = order;
-      //console.log(req.session.order);
+      console.log(req.session.order);
       res.redirect('/');
     });
 })
@@ -124,8 +134,17 @@ router.post('/order/:id', function(req, res, next){
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Drinks.find(function(err, drinks){
-    res.render('order/index', { title: 'Express', drinks: drinks});
+    res.render('order/index', { title: 'E-Coffee', drinks: drinks});
   });
+});
+
+router.get('/checkout', function(req, res, next){
+  if(!req.session.order){
+    return res.render('checkout/order', {drinks: null});
+  }
+  var order = new Order(req.session.order);
+  //console.log(req.session.order);
+  res.render('checkout/order', {drinks: order.returnDrinks(), totalPrice: order.totalPrice});
 });
 
 router.get('/order/:id/customize', function(req, res, next){
@@ -145,6 +164,11 @@ router.get('/order/:id/customize', function(req, res, next){
       }
     //db.collection.find( {name: req.params.id } );
   });
+});
+
+router.get('/completeOrder/', function(req, res,next){
+  req.session.order = null;
+  res.redirect('/');
 });
 
 module.exports = router;

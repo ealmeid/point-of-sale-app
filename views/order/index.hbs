@@ -1,13 +1,14 @@
 <div class="row">
+  <h3><strong>Drinks</strong></h3>
   {{# each drinks }}
   <!--<a href='/order/{{this.id}}'>-->
-  <a id={{this.name}} onclick='getModifiers()' href='/order/{{this.id}}/customize'>
-  <div class="card bg-dark text-white">
-  <img class="card-img" src={{this.image}} alt="Card image">
-  <div class="card-img-overlay">
-  </div>
-      <h5 class="card-title center">{{this.name}}</h5>
-  </div>
+  <a id={{this.name}} class="drinkLink" onclick='getModifiers()' href='/order/{{this.id}}/customize'>
+    <div class="card bg-dark text-white">
+      <img class="card-img" src={{this.image}} alt="Card image">
+        <div class="card-img-overlay">
+        </div>
+          <h5 class="card-title center">{{this.name}}</h5>
+    </div>
   </a>
   <!--<button display="none" onclick="addToCart()" id='{{this.name}}add'>Add</button>-->
   {{/each }}

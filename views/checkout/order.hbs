@@ -1,0 +1,21 @@
+{{# if drinks}}
+<ul class="list-group">
+  <h2><strong>Your Order:</strong></h2>
+  {{# each drinks}}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <b>{{drink.name}}</b><br>
+    Price: {{drink.price}}
+    Qty: {{this.quantity}}
+    {{# each drink.modifiers}}
+      {{@key}}:{{this}}
+    {{/each}}
+  </li>
+  {{/each}}
+</ul>
+<strong><h1>${{totalPrice}}</h1></strong><br>
+<form class="center-screen" method="GET" action="/completeOrder/">
+  <input class="green" type="submit" value="Checkout">
+</form>
+{{else}}
+  <strong>No items added to order</strong>
+{{/if}}

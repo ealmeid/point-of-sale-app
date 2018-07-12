@@ -3,7 +3,7 @@
     {{# each drinks}}
         <div class="center-screen name"><strong>{{name}}</strong></div><br>
             {{# each modifiers}}
-                <div class="center-screen">How much {{@key}} would you like?</div>
+                <div class="center-screen"><b>How much {{@key}} would you like?</b></div>
                 <input type="text" name="modifier" value={{this}}><br>
             {{/each}}
     {{/each}}
