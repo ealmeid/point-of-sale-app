@@ -9,10 +9,8 @@ var mongo = require('mongoose');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
-//var connect = require('connect');
 
-var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
+var indexRouter = require('./api/routes/index');
 
 var app = express();
 
@@ -48,7 +46,6 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
