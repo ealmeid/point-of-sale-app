@@ -1,5 +1,3 @@
-//Received assistance from https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w for this part
-/* Reminder to rewrite this section */
 const math = require('mathjs');
 
 module.exports = function Order(drinks){
