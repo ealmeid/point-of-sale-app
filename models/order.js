@@ -26,24 +26,18 @@ module.exports = function Order(drinks){
             }
         }
             storedDrink.quantity++;
-            //console.log(storedDrink.quantity);
             this.totalPrice+=parseFloat(storedDrink.drink.price);
             storedDrink.drink.price = storedDrink.drink.price * storedDrink.quantity;
             console.log(storedDrink.price);
-            //console.log(this.drinks[id].drink.modifiers);
-            //console.log(drink.modifiers);
             this.totalQty++;
             this.totalPrice = math.round(this.totalPrice, 2); //try to found another built-in function and uninstall mathjs
-            //console.log(this.drinks);
     };
 
     this.returnDrinks = function(){
         var arr = [];
-        //console.log("THIS IS THE RETURNDRINKS FUNCTION");
         for (var id in this.drinks){
             arr.push(this.drinks[id]);
         }
-        //console.log(arr);
         return arr;
     };
 

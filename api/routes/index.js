@@ -67,7 +67,6 @@ router.post('/order/:id', function(req, res, next){
             break;
       }
       req.session.order = order;
-      //console.log(req.session.order);
       res.redirect('/');
     });
 })
@@ -78,7 +77,6 @@ router.get('/checkout', function(req, res, next){
     return res.render('checkout/order', {drinks: null});
   }
   var order = new Order(req.session.order);
-  //console.log(req.session.order);
   res.render('checkout/order', {drinks: order.returnDrinks(), totalPrice: order.totalPrice});
 });
 
