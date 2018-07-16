@@ -1,3 +1,4 @@
+<div class="order-container float-left">
 {{# if drinks}}
 <ul class="list-group list-group-flush">
   <h2><strong>Your Order:</strong></h2>
@@ -11,12 +12,13 @@
     {{/each}}
 </ul>
 <strong><h1>Sub-Total: ${{totalPrice}}</h1></strong><br>
-<strong><h1>Tax: ${{totalPrice}}</h1></strong><br>
-<strong><h1>Total: ${{totalPrice}}</h1></strong><br>
+<strong><h1>Tax: ${{taxPrice totalPrice}}</h1></strong><br>
+<strong><h1>Total: ${{totalPriceWithTax totalPrice}}</h1></strong><br>
 
 <form class="center-screen" method="GET" action="/completeOrder/">
-  <input class="green" type="submit" value="Checkout">
+  <input class="green" type="submit" value="Complete Order">
 </form>
 {{else}}
   <strong>No items added to order</strong>
 {{/if}}
+</div>

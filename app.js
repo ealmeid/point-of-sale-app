@@ -9,6 +9,8 @@ var mongo = require('mongoose');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
+var hbs = require('handlebars');
+var math = require('mathjs');
 
 var indexRouter = require('./api/routes/index');
 
@@ -61,6 +63,14 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+hbs.registerHelper('taxPrice', function(totalPrice) {
+  return math.round(totalPrice*0.13, 2);
+});
+
+hbs.registerHelper('totalPriceWithTax', function(totalPrice) {
+  return math.round(totalPrice*1.13, 2);
 });
 
 module.exports = app;
