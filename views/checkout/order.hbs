@@ -2,15 +2,18 @@
 <ul class="list-group list-group-flush">
   <h2><strong>Your Order:</strong></h2>
   {{# each drinks}}
-  <li class="list-group-item"><b float="left">{{this.quantity}} {{drink.name}}</b><br>
-    <div class="price">${{this.price}}</div>
+  <li class="list-group-item"><b class="float-left">{{this.quantity}} {{drink.name}}</b><br>
+    <div class="float-right">${{this.price}}</div>
     {{# each drink.modifiers}}
-      {{@key}}:{{this}}
+      <div class="float-left">{{@key}}: {{this}}</div><br>
     {{/each}}
     </li>
     {{/each}}
 </ul>
-<strong><h1>${{totalPrice}}</h1></strong><br>
+<strong><h1>Sub-Total: ${{totalPrice}}</h1></strong><br>
+<strong><h1>Tax: ${{totalPrice}}</h1></strong><br>
+<strong><h1>Total: ${{totalPrice}}</h1></strong><br>
+
 <form class="center-screen" method="GET" action="/completeOrder/">
   <input class="green" type="submit" value="Checkout">
 </form>
