@@ -3,14 +3,12 @@
   {{# each drinks }}
   <!--<a href='/order/{{this.id}}'>-->
   <a id={{this.name}} class="drinkLink" href='/order/{{this.id}}/customize'>
-    <div class="card bg-dark text-white">
+    <div class="card text-white">
       <img class="card-img" src={{this.image}} alt="Card image">
-        <div class="card-img-overlay">
-        </div>
-          <h5 class="card-title center">{{this.name}}</h5>
+          <h5 class="card-title center"><br>{{this.name}}</h5>
     </div>
   </a>
   <!--<button display="none" onclick="addToCart()" id='{{this.name}}add'>Add</button>-->
   {{/each }}
-  {{test}}
 </div>
+<a class="text-white" href="/about/">About</a>

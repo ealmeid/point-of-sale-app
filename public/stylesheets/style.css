@@ -1,5 +1,7 @@
 .card {
+  background-color: rgba(0, 0, 0, 0);
   max-width: 200px;
+  border: none;
   margin: 0px; }
   .card:hover {
     opacity: .8; }
@@ -7,6 +9,10 @@
     .card {
       max-width: 325px;
       float: none; } }
+
+.card-img {
+  width: 90px;
+  height: 90px; }
 
 .row {
   background: #2d4262;
@@ -31,8 +37,9 @@ input {
     background-color: #46af1c; }
 
 body {
-  background: url("https://wallpaper-house.com/data/out/10/wallpaper2you_418286.jpg");
-  text-align: center; }
+  background: #88BDBC;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif; }
 
 .img-header {
   width: 75px;
@@ -40,7 +47,7 @@ body {
   margin: 25px; }
 
 .page-header {
-  background: #363237; }
+  background: #254E58; }
 
 .left {
   width: 70%;
@@ -50,8 +57,7 @@ body {
   float: left; }
 
 strong {
-  color: #f1f1f2;
-  font-family: "Arial"; }
+  color: #f1f1f2; }
 
 .checkout-btn {
   background-color: #46af1c;
@@ -86,7 +92,7 @@ a.drinkLink {
   font-size: 30px;
   line-height: 100px;
   text-align: center;
-  font-family: "Fira Sans"; }
+  font-family: 'Ubuntu', sans-serif; }
 
 h3 {
   display: inline-block;
@@ -97,9 +103,7 @@ h3 {
   border-width: 5px;
   background: #363237; }
 
-.list-group {
-  border-style: dotted;
-  border-color: #bcbabe;
-  border-width: 4px; }
+.price {
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */

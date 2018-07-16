@@ -1,16 +1,14 @@
 {{# if drinks}}
-<ul class="list-group">
+<ul class="list-group list-group-flush">
   <h2><strong>Your Order:</strong></h2>
   {{# each drinks}}
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <b>{{drink.name}}</b><br>
-    Price: ${{this.price}}
-    Qty: {{this.quantity}}
+  <li class="list-group-item"><b float="left">{{this.quantity}} {{drink.name}}</b><br>
+    <div class="price">${{this.price}}</div>
     {{# each drink.modifiers}}
       {{@key}}:{{this}}
     {{/each}}
-  </li>
-  {{/each}}
+    </li>
+    {{/each}}
 </ul>
 <strong><h1>${{totalPrice}}</h1></strong><br>
 <form class="center-screen" method="GET" action="/completeOrder/">

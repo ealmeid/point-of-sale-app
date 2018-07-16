@@ -65,6 +65,12 @@ router.post('/order/:id', function(req, res, next){
             order.add(dripCoffee, drinkNum);
             drinkNum++;
             break;
+        case "Smoothie":
+            const smoothie = new drinkClasses.Smoothie("Smoothie", 2.49);
+            smoothie.updateModifiers(req.body.modifier);
+            order.add(smoothie, drinkNum);
+            drinkNum++;
+            break;
       }
       req.session.order = order;
       res.redirect('/');
@@ -81,9 +87,13 @@ router.get('/checkout', function(req, res, next){
 });
 
 /* 5 */
-router.get('/completeOrder/', function(req, res,next){
+router.get('/completeOrder/', function(req, res, next){
   req.session.order = null;
   res.redirect('/');
+});
+
+router.get('/about/', function(req, res, next){
+  res.render('misc/about');
 });
 
 module.exports = router;
